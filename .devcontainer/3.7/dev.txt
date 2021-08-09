@@ -1,0 +1,5 @@
+-r default.txt
+pytest
+pytest-cov
+black
+ipdb
