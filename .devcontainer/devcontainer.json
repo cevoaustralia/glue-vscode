@@ -11,9 +11,7 @@
   "containerUser": "${localEnv:USER}",
   "extensions": [
     "ms-python.python",
-    "esbenp.prettier-vscode",
-    "mhutchie.git-graph",
-    "eamodio.gitlens"
+    "esbenp.prettier-vscode"
   ],
   "workspaceMount": "source=${localWorkspaceFolder},target=${localEnv:HOME}/glue-vscode,type=bind,consistency=cached",
   "workspaceFolder": "${localEnv:HOME}/glue-vscode",
