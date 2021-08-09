@@ -1,5 +1,5 @@
 {
-  "name": "glue-vscode",
+  "name": "glue",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
