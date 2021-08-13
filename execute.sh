@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
 ## configure python runtime
-if [ -z "$use_venv" ]; then
-  pypsark_python=python
+if [ "$version" == "1" ]; then
+  pyspark_python=python
+elif [ "$version" == "2" ]; then
+  pyspark_python=/root/venv/bin/python
 else
-  pypsark_python=/root/venv/bin/python
+  echo "unsupported version - $version, only 1 or 2 is accepted"
+  exit 1
 fi
-echo "pyspark python - $pypsark_python"
+echo "pyspark python - $pyspark_python"
 
 execution=$1
-echo "execution - $execution"
+echo "execution type - $execution"
 
 ## remove first argument
 shift 1
@@ -17,14 +20,16 @@ echo $@
 
 ## set up command
 if [ $execution == 'pyspark' ]; then
-  sudo su -c "PYSPARK_PYTHON=$pypsark_python /home/aws-glue-libs/bin/gluepyspark"
+  sudo su -c "PYSPARK_PYTHON=$pyspark_python /home/aws-glue-libs/bin/gluepyspark"
 elif [ $execution == 'spark-submit' ]; then
-  sudo su -c "PYSPARK_PYTHON=$pypsark_python /home/aws-glue-libs/bin/gluesparksubmit $@"
+  sudo su -c "PYSPARK_PYTHON=$pyspark_python /home/aws-glue-libs/bin/gluesparksubmit $@"
 elif [ $execution == 'pytest' ]; then
-  sudo su -c "PYSPARK_PYTHON=$pypsark_python /home/aws-glue-libs/bin/gluepytest $@"
-elif [ $execution == 'pytest2' ]; then
-  sudo su -c "PYSPARK_PYTHON=$pypsark_python /home/aws-glue-libs/bin/gluepytest2 $@"
+  if [ $version == "1" ]; then
+    sudo su -c "PYSPARK_PYTHON=$pyspark_python /home/aws-glue-libs/bin/gluepytest $@"
+  else
+    sudo su -c "PYSPARK_PYTHON=$pyspark_python /home/aws-glue-libs/bin/gluepytest2 $@"
+  fi
 else
-  echo "unsupported execution - $execution"
+  echo "unsupported execution type - $execution"
   exit 1
 fi
