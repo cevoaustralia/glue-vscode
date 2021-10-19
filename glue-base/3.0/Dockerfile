@@ -36,7 +36,7 @@ RUN pip install -r /tmp/requirements.txt
 
 ## Update Python path
 ENV GLUE_HOME=/opt/aws-glue-libs-3.0
-ENV PYTHONPATH=$GLUE_HOME/awsglue:$SPARK_HOME/python/lib/pyspark.zip:$SPARK_HOME/python/lib/py4j-0.10.9-src.zip:$SPARK_HOME/python
+ENV PYTHONPATH=$GLUE_HOME:$SPARK_HOME/python/lib/pyspark.zip:$SPARK_HOME/python/lib/py4j-0.10.9-src.zip:$SPARK_HOME/python
 
 EXPOSE 4040
 
