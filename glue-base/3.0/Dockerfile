@@ -1,4 +1,4 @@
-FROM python:3.7.12-buster
+FROM python:3.7.12-bullseye
 
 ## Install utils
 RUN apt-get update && apt-get install -y zip
