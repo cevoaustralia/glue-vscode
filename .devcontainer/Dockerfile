@@ -1,4 +1,4 @@
-FROM public.ecr.aws/i0m5p1b5/glue-base:3.0
+FROM public.ecr.aws/cevoaustralia/glue-base:latest
 
 ARG USERNAME
 ARG USER_UID
