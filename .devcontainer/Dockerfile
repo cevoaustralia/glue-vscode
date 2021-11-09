@@ -15,5 +15,5 @@ RUN apt-get update \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 ## Install Python packages
-COPY ./3.7 /tmp/3.7
-RUN pip install -r /tmp/3.7/dev.txt
+COPY ./pkgs /tmp/pkgs
+RUN pip install -r /tmp/pkgs/dev.txt
