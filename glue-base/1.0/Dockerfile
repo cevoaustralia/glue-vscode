@@ -1,7 +1,5 @@
 FROM python:3.6.12-buster
 
-#### to be updated below
-
 ## Install utils
 RUN apt-get update && apt-get install -y zip
 
@@ -23,7 +21,7 @@ ENV PATH="${PATH}:${M2_HOME}/bin"
 ## Add Maven, Spark and AWS Glue Libs to /opt
 RUN curl -SsL https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-common/apache-maven-3.6.0-bin.tar.gz \
     | tar -C /opt --warning=no-unknown-keyword -xzf -
-RUN curl -SsL https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-2.0/spark-2.4.3-bin-hadoop2.8.tgz \
+RUN curl -SsL https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-1.0/spark-2.4.3-bin-hadoop2.8.tgz \
     | tar -C /opt --warning=no-unknown-keyword -xzf -
 RUN curl -SsL https://github.com/awslabs/aws-glue-libs/archive/refs/tags/v1.0-and-v2.0.tar.gz \
     | tar -C /opt --warning=no-unknown-keyword -xzf -
