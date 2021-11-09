@@ -1,4 +1,4 @@
-FROM public.ecr.aws/i0m5p1b5/glue-base:3.0
+FROM public.ecr.aws/cevoaustralia/glue-base:latest
 
 ARG USERNAME
 ARG USER_UID
@@ -15,5 +15,5 @@ RUN apt-get update \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 ## Install Python packages
-COPY ./3.7 /tmp/3.7
-RUN pip install -r /tmp/3.7/dev.txt
+COPY ./pkgs /tmp/pkgs
+RUN pip install -r /tmp/pkgs/dev.txt
