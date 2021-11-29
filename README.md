@@ -4,4 +4,4 @@ This repository provides source for developing Glue with Docker and Visual Studi
 
 [Visual Studio Code Remote - Containers](https://code.visualstudio.com/docs/remote/containers) extension is recommended for actual development where you can run your workspace inside a container. See [Local Development of AWS Glue with Docker and Visual Studio Code](https://cevo.com.au/post/aws-glue-local-development/) for details. This post covers Glue 1.0 and 2.0 and the associating branch is [v1.0-and-v2.0](https://github.com/cevoaustralia/glue-vscode/tree/v1.0-and-v2.0).
 
-The source for later versions of Glue will be kept in a dedicated branch. For example, Glue 3.0 can be found in the [v3.0](https://github.com/cevoaustralia/glue-vscode/tree/v3.0) branch. A separate introduction will be added shortly.
+The source for later versions of Glue will be kept in a dedicated branch. For example, Glue 3.0 can be found in the [v3.0](https://github.com/cevoaustralia/glue-vscode/tree/v3.0) branch. See [Local Development of AWS Glue 3.0 and Later](https://cevo.com.au/post/local-development-of-aws-glue-3-0-and-later/) for details.
